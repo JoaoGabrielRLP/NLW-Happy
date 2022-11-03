@@ -1,0 +1,156 @@
+#page-orphanage{
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Como a div pai da main tem display: flex; o main que é filho poderá ser definido com flex:1; que faz com que o main permaneça centralizado sempre, independente do tamanho da tela */
+main{
+    flex: 1;
+}
+
+
+/* Details */
+.orphanage-details{
+    width: 70rem;
+    margin: 6.4rem auto;
+    background: white;
+    border:1px solid #D3E2E5;
+
+    border-radius:2rem;
+
+    overflow: hidden;
+}
+/* O sinal de > significa que o css vai buscar a img no primeiro nivel da div, ou seja, a que está diretamente dentro da div */
+/* Object-fit é como o objeto é adaptado
+contain: coloca a img dentro da div mantendo suas proporções
+cover: cobre a largura da div, mas mantem a proporção da img*/
+.orphanage-details > img{
+    width:100%;
+    height: 30rem;
+    object-fit: cover;
+}
+/* display: grid vai mexer com todos os filhos da div, mexe tbm com colunas e linhas (eixo x e y) */
+
+.images{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* define o número de colunas, quantas vezes a coluna se repete e em quantas frações se separa */ 
+    column-gap: 1.6rem; /* Espaço entre colunas */
+    margin: 16px 40px 0;
+}
+
+.images button {
+    border:0;
+    background:none;
+
+    height: 8.8rem;
+    cursor: pointer;
+    border-radius:2rem;
+
+    /* Overflow: hidden faz com que o objeto(nesse caso imagem) respeite as margens da div e não transborde, se modificando com a div */
+    overflow: hidden;
+
+    opacity: 0.6;
+
+    transition: opacity 200ms;
+}
+
+.images button:hover,
+.images button.active{
+    opacity:1;
+}
+
+.images button img{
+    width: 100%;
+    height: 8.8rem;
+    object-fit:cover;
+}
+
+/* orphange-details-content */
+.orphange-details-content{
+    padding: 8rem;
+}
+
+.orphange-details-content h1{
+    color: #4D6F80;
+    font-size: 5.4rem;
+    line-height:1.5;
+    margin-bottom: 0.8rem;    
+}
+
+.orphange-details-content p{
+    line-height: 1.6;
+    color: #5C8599;
+    margin-top: 2.4rem;
+}
+
+.orphange-details-content hr{
+    width:100%;
+    height: 1px;
+    border: none;
+    background: #D3E2E6;
+
+    margin: 6.4rem 0;
+}
+
+.orphange-details-content h2{
+    font-size: 3.6rem;
+    line-height: 1.5rem;
+    color: #4D6F80;
+}
+
+.open-details{
+    margin-top: 2.4rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+
+    line-height: 1.5
+}
+
+.open-details div{
+    padding: 3.2rem 2.4rem;
+}
+
+.open-details img{
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.open-details .hour{
+    background: linear-gradient(149.97deg, #E6F7FB 8.13%, #FFFFFF 92.67%);
+    border: 1px solid #B3DAE2;
+    border-radius: 20px;
+    color: #5C8599;
+}
+
+.open-details .open-on-weekends{
+    border-radius: 20px;
+}
+
+.primary-button{
+    margin-top: 6.4rem;
+    width: 100%;
+    height: 6.4rem;
+    cursor: pointer;
+    background: #3CDC8C;
+    border-radius: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .2s;
+}
+
+.open-on-weekends.open {
+    background: linear-gradient(154.16deg, #EDFFF6 7.85%, #FFFFFF 91.03%);
+    border: 1px solid #A1E9C5;
+    color: #37C77F;
+}
+
+.open-on-weekends.closed {
+    background: linear-gradient(154.16deg, #FCF0F4 7.85%, #FFFFFF 91.03%);
+    border: 1px solid #FFBCD4;
+    color: #FF999D;
+}
+
